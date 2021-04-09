@@ -20,3 +20,4 @@ In the case of a disagreement or conflict, the disagreeing parties will enter in
 I, Henry Wu (henrywu3) agree to the terms of this contract.
 I, Abhyan Jaikishen (abhyanj2) agree to the terms of this contract.
 I, Andy Wang (andyjw2) agree to the terms of this contract.
+I, Minjoong Kim (msk6) agree to the terms of this contract. 
