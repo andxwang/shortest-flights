@@ -1,5 +1,5 @@
 # CS 225 Data Structures
-## Project Proposal (rittika2-gcevans-xz33-atharva2)
+## Project Proposal (abhyanj2-msk6-andyjw2-henrywu3)
 
 1. **Leading Question** Given the Open Flights dataset, our goal is to find the shortest flight path from point A to point B to find preferable routes.
 Ideally, we would have a function or interface whereby entering the parameters of two airports, 
