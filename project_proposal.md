@@ -5,7 +5,7 @@
 Ideally, we would have a function or interface whereby entering the parameters of two airports, 
 the shortest path between those two locations would be returned based on available flight routes.
 
-2. **Dataset Acquistion and Processing** WOur team will use the Open Flights dataset, specifically the airports.dat and routes.dat files, 
+2. **Dataset Acquistion and Processing** Our team will use the Open Flights dataset, specifically the airports.dat and routes.dat files, 
 as well as potentially the airlines.dat file. The files are available for download as a CSV file, and will be stored on Github. 
 We will load the data into arrays and then construct a weighted digraph with the flight paths as edges and airports as nodes.
 Given the size of the data, we will drop any entries with errors by first by first checking all the entries.
