@@ -3,6 +3,8 @@ EXENAME = finalproj
 # Object Types
 OBJS = readFromFile.o main.o
 
+# OBJS_DIR = .objs
+
 # Compilation Flags
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++14 -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
