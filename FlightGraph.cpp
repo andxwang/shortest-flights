@@ -108,14 +108,14 @@ void FlightGraph::loadFlights() {
 }
 
 double FlightGraph::calculateDistance(int source, int destn) {
-    // use airportGraph[source] and airportGraph[dest]
+    // use airportGraph[source] and airportGraph[destn]
     
     //using placeholders for now because from what I can tell each airport does not have 
     // lat. long. components I can access
-    double source_lat = 1.0;
-    double dest_lat = 1.0;
-    double source_long = 1.0;
-    double dest_long = 1.0;
+    double source_lat = airportGraph[source].latitude;
+    double dest_lat = airportGraph[destn].longitude;
+    double source_long = airportGraph[source].latitude;
+    double dest_long = airportGraph[destn].longitude;
 
     //need to convert them all to radians now
     source_lat = (M_PI / 180) * source_lat;
