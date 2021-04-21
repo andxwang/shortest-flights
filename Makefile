@@ -1,5 +1,4 @@
 EXENAME = finalproj
-
 # Object Types
 OBJS = readFromFile.o main.o
 

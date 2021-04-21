@@ -72,6 +72,11 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp",
+        "condition_variable": "cpp",
+        "memory_resource": "cpp",
+        "shared_mutex": "cpp"
     }
 }

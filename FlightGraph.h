@@ -16,6 +16,8 @@ using namespace std;
 
 class FlightGraph {
     public:
+        vector<vector<string>> routes;
+        vector<vector<string>> airports;
         map<int, Vertex> airportGraph;
         void insertVertex(vector<string> line);
         void insertEdge(vector<string> line);

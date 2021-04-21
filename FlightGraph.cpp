@@ -56,6 +56,10 @@ void FlightGraph::loadAirports() {
         //     cout << e << endl;
         // }
 
+
+        // add to vector to track airports
+        airports.push_back(v);
+
         // insert Vertex using vector
         insertVertex(v);
     }
@@ -96,6 +100,8 @@ void FlightGraph::loadFlights() {
 
         v.push_back(source_ID);
         v.push_back(destn_ID);
+        // add to vector to track routes
+        routes.push_back(v);
 
         insertEdge(v);
     }
