@@ -109,4 +109,26 @@ void FlightGraph::loadFlights() {
 
 double FlightGraph::calculateDistance(int source, int destn) {
     // use airportGraph[source] and airportGraph[dest]
+    
+    //using placeholders for now because from what I can tell each airport does not have 
+    // lat. long. components I can access
+    double source_lat = 1.0;
+    double dest_lat = 1.0;
+    double source_long = 1.0;
+    double dest_long = 1.0;
+
+    //need to convert them all to radians now
+    source_lat = (M_PI / 180) * source_lat;
+    dest_lat = (M_PI / 180) * dest_lat;
+    source_long = (M_PI / 180) * source_long;
+    dest_long = (M_PI / 180) * dest_long;
+
+    //using the Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
+    double diff_long = dest_long - source_long;
+    double diff_lat = dest_lat - source_lat;
+
+    double dist = (sin(diff_lat/2) * sin(diff_lat/2)) + cos(source_lat) + cos(dest_lat) * ( sin(diff_long) * sin(diff_long));
+    dist = 2 * asin(sqrt(dist)) * 6371000; //6371000 is the radius of the Earth in meters
+
+    return dist;
 }

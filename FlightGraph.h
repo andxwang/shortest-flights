@@ -10,7 +10,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-
+#include <cmath>
 
 using namespace std;
 
