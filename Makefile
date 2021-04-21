@@ -1,6 +1,6 @@
 EXENAME = finalproj
 # Object Types
-OBJS = readFromFile.o main.o
+OBJS = readFromFile.o main.o FlightGraph.o
 
 # OBJS_DIR = .objs
 
@@ -25,6 +25,9 @@ $(EXENAME): output_msg $(OBJS)
 
 readFromFile.o: main.cpp readFromFile.cpp
 	$(CXX) $(CXXFLAGS) main.cpp readFromFile.cpp
+
+FlightGraph.o: FlightGraph.cpp
+	$(CXX) $(CXXFLAGS) FlightGraph.cpp
 
 test: output_msg catch/catchmain.cpp tests/tests.cpp readFromFile.cpp
 	$(LD) catch/catchmain.cpp tests/tests.cpp readFromFile.cpp $(LDFLAGS) -o test
