@@ -8,16 +8,20 @@
 
 class Edge {
     public:
-        Edge(Vertex v1, Vertex v2)
-            : source(v1), destn(v2), weight(-1) 
+        Edge(int s, int d, double w)
+            : source(s), destn(d), weight(w) 
             {};
         
-        Edge(Vertex v1, Vertex v2, double w)
-            : source(v1), destn(v2), weight(w) 
-            {};
+        void setWeight(double w) {
+            weight = w;
+        }
+
+        double getWeight() {
+            return weight;
+        }
 
     private:
-        Vertex source;
-        Vertex destn;
-        double weight;
+        int source; // ID of source airport
+        int destn; // ID of destination airport
+        double weight; // distance between source airport and destination airport
 };

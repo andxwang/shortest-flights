@@ -12,8 +12,9 @@ using namespace std;
 struct Vertex {
     int id;
     string city;
+    string country;
     string code;
     double latitude;
     double longitude;
-    unordered_map<int, Edge> airports;
+    unordered_map<int, Edge> airports; //source airports
 };
