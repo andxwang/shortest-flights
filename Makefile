@@ -26,11 +26,14 @@ $(EXENAME): output_msg $(OBJS)
 readFromFile.o: main.cpp readFromFile.cpp
 	$(CXX) $(CXXFLAGS) main.cpp readFromFile.cpp
 
-FlightGraph.o: FlightGraph.cpp
-	$(CXX) $(CXXFLAGS) FlightGraph.cpp
+FlightGraph.o: main.cpp FlightGraph.cpp
+	$(CXX) $(CXXFLAGS) main.cpp FlightGraph.cpp
 
-test: output_msg catch/catchmain.cpp tests/tests.cpp readFromFile.cpp
-	$(LD) catch/catchmain.cpp tests/tests.cpp readFromFile.cpp $(LDFLAGS) -o test
+FlightAlgorithms.o: main.cpp FlightAlgorithms.cpp
+	$(CXX) $(CXXFLAGS) main.cpp FlightAlgorithms.cpp
+
+test: output_msg catch/catchmain.cpp tests/tests.cpp readFromFile.cpp FlightAlgorithms.cpp FlightGraph.cpp 
+	$(LD) catch/catchmain.cpp tests/tests.cpp readFromFile.cpp FlightAlgorithms.cpp FlightGraph.cpp $(LDFLAGS) -o test
 
 clean:
 	-rm -f *.o $(EXENAME) test
