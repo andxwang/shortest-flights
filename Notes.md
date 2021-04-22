@@ -14,3 +14,17 @@ Andy: Load data into vector
 Minjoong: Test cases for the loaded data  
 Henry: Implement BFS  
 Abhyan: Write BFS tests  
+
+
+## Week 3
+
+
+Discussed MakeFile
+Removed unused func readFromFile
+Discussed /N entries in routes.dat and airports.dat file
+Fixed MakeFile to allow testing
+Worked with FlightAlgorithms constructor 
+Dropped entries with /N values in destination code of routes.dat
+Modified BFS to allow for compiling
+Removed parameters from main()
+Created FlightAlgorithms object in main
