@@ -16,8 +16,6 @@ your tests should work- at least for the other functions.
 Like ik the case for calculateDistance is working now.
 */
 
-
-
 // BFS to traverse from a start point (airport id), returns a vector or vertices
 vector<Vertex> FlightAlgorithms::BFS(int start) {
     // Create visited vector, set all values to false, 14110 is ID of last airport
