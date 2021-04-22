@@ -15,4 +15,5 @@ int main(int argc, const char * argv[]) {
 	for (auto word : vectorRepr) {
 		std::cout << word << std::endl;
 	}	
+	return 0; //placeholder I just dropped in 
 }

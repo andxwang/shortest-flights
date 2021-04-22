@@ -3,6 +3,7 @@
 #include "../catch/catch.hpp"
 #include "../readFromFile.hpp"
 #include "../FlightGraph.h"
+#include "../FlightAlgorithms.h"
 #include <iostream>
 
 
@@ -29,6 +30,11 @@ TEST_CASE("Verify that file_to_vector works on a small example") {
 	}
 }	
 
+//just gonna use this to see if I'm doing this correctly
+TEST_CASE("Verify that calculateDistance works ") {
+	FlightGraph bruh;
+	REQUIRE(bruh.calculateDistance(0, 0) == 0);
+}
 
 /*
 Still figuring out what to do with \\N values

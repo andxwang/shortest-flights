@@ -17,7 +17,7 @@ using namespace std;
 
 class FlightAlgorithms {
     public:
-        OpenFlights();
+        FlightAlgorithms();
         vector<Vertex> BFS(int start);
 
     private:        
