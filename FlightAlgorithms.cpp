@@ -33,17 +33,17 @@ vector<Vertex> FlightAlgorithms::BFS(int start) {
     visited[start] = true;      // Set starting airport to visited
 
     //  BFS
-    while (!airportQueue.empty()) {
-        int curr = airportQueue.front();
-        result.push_back(flightGraph_.airportGraph[curr]); // add current airport to result
-        airportQueue.pop();
-        for (auto i = flightGraph_.airportGraph[curr].airports.begin(); i != flightGraph_.airportGraph[curr].airports.end(); ++i) {    //  search all departures from current airport
-            if (visited[i] == false) {  //  next airport has not been visited
-                airportQueue.push(i);   //  enqueue next airport
-                visited[i] = true;
-            }
-        }
-    }
+    // while (!airportQueue.empty()) {
+    //     int curr = airportQueue.front();
+    //     result.push_back(flightGraph_.airportGraph[curr]); // add current airport to result
+    //     airportQueue.pop();
+    //     for (auto i = flightGraph_.airportGraph[curr].airports.begin(); i != flightGraph_.airportGraph[curr].airports.end(); ++i) {    //  search all departures from current airport
+    //         if (visited[i] == false) {  //  next airport has not been visited
+    //             airportQueue.push(i);   //  enqueue next airport
+    //             visited[i] = true;
+    //         }
+    //     }
+    // }
 
     return result;
 }

@@ -1,6 +1,6 @@
 EXENAME = finalproj
 # Object Types
-OBJS = readFromFile.o main.o FlightGraph.o
+OBJS = main.o FlightGraph.o FlightAlgorithms.o
 
 # OBJS_DIR = .objs
 
@@ -30,7 +30,7 @@ FlightAlgorithms.o: main.cpp FlightAlgorithms.cpp
 	$(CXX) $(CXXFLAGS) main.cpp FlightAlgorithms.cpp
 
 test: output_msg catch/catchmain.cpp tests/tests.cpp FlightAlgorithms.cpp FlightGraph.cpp 
-	$(LD) catch/catchmain.cpp tests/tests.cpp readFromFile.cpp FlightAlgorithms.cpp FlightGraph.cpp $(LDFLAGS) -o test
+	$(LD) catch/catchmain.cpp tests/tests.cpp FlightAlgorithms.cpp FlightGraph.cpp $(LDFLAGS) -o test
 
 clean:
 	-rm -f *.o $(EXENAME) test
