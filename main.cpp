@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
+#include "FlightAlgorithms.h"
 
-int main(int argc, const char * argv[]) {
+int main() {
 	return 0; //placeholder I just dropped in 
 }
