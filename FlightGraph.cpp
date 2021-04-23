@@ -20,7 +20,7 @@ void FlightGraph::insertVertex(vector<string> line) {
 // load the airports into a vector, 
 // to be passed into insertVertex 
 void FlightGraph::loadAirports() {
-    ifstream airportsfile("data/airports_sub.dat");
+    ifstream airportsfile("data/airports.dat");
     string line;
     stringstream ss(line);
     char delim = ',';
@@ -84,7 +84,7 @@ void FlightGraph::insertEdge(vector<string> line) {
 // load the routes/flights into a vector, 
 // to be passed into insertEdge
 void FlightGraph::loadFlights() {
-    ifstream flightsfile("data/routes_sub.dat");
+    ifstream flightsfile("data/routes.dat");
     string line;
     stringstream ss(line);
     char delim = ',';
@@ -104,7 +104,6 @@ void FlightGraph::loadFlights() {
         v.push_back(destn_ID);
         // add to vector to track routes
         routes.push_back(v);
-
         insertEdge(v);
     }
 }
