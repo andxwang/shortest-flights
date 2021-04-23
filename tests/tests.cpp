@@ -32,7 +32,10 @@ Example test case from instruction
 //just gonna use this to see if I'm doing this correctly
 TEST_CASE("Verify that calculateDistance works ") {
 	FlightGraph bruh;
+	bruh.loadAirports();
+ 	bruh.loadFlights();
 	REQUIRE(bruh.calculateDistance(0, 0) == 0);
+	// REQUIRE(bruh.calculateDistance())
 }
 
 /*

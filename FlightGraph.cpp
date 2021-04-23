@@ -1,5 +1,6 @@
 #include "FlightGraph.h"
-
+#include <iostream>
+using namespace std;
 // insert Vertex into airportGraph
 void FlightGraph::insertVertex(vector<string> line) {
     // line consists of:
@@ -10,6 +11,7 @@ void FlightGraph::insertVertex(vector<string> line) {
     airport.country = line[2];
     airport.code = line[3];
     airport.latitude = atof(line[4].c_str());
+    cout <<airport.latitude <<endl;
     airport.longitude = atof(line[5].c_str()); //atof converts string to float
 
     airportGraph.insert(pair<int, Vertex>(airport.id, airport));
@@ -18,7 +20,7 @@ void FlightGraph::insertVertex(vector<string> line) {
 // load the airports into a vector, 
 // to be passed into insertVertex 
 void FlightGraph::loadAirports() {
-    ifstream airportsfile("data/airports.dat");
+    ifstream airportsfile("data/airports_sub.dat");
     string line;
     stringstream ss(line);
     char delim = ',';
@@ -82,7 +84,7 @@ void FlightGraph::insertEdge(vector<string> line) {
 // load the routes/flights into a vector, 
 // to be passed into insertEdge
 void FlightGraph::loadFlights() {
-    ifstream flightsfile("data/routes.dat");
+    ifstream flightsfile("data/routes_sub.dat");
     string line;
     stringstream ss(line);
     char delim = ',';
@@ -114,6 +116,8 @@ double FlightGraph::calculateDistance(int source, int destn) {
     double dest_lat = airportGraph[destn].longitude;
     double source_long = airportGraph[source].latitude;
     double dest_long = airportGraph[destn].longitude;
+    // cout << airportGraph[source].latitude <<endl;
+    // cout << airportGraph[source].longitude << endl;
 
     //need to convert them all to radians now
     source_lat = (M_PI / 180) * source_lat;
