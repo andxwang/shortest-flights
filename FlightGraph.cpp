@@ -11,8 +11,8 @@ void FlightGraph::insertVertex(vector<string> line) {
     airport.country = line[2];
     airport.code = line[3];
     airport.latitude = atof(line[4].c_str());
-    cout <<airport.latitude <<endl;
     airport.longitude = atof(line[5].c_str()); //atof converts string to float
+    // cout <<airport.longitude <<endl;
 
     airportGraph.insert(pair<int, Vertex>(airport.id, airport));
 }
@@ -113,11 +113,11 @@ double FlightGraph::calculateDistance(int source, int destn) {
     // use airportGraph[source] and airportGraph[destn]
     
     double source_lat = airportGraph[source].latitude;
-    double dest_lat = airportGraph[destn].longitude;
-    double source_long = airportGraph[source].latitude;
+    double dest_lat = airportGraph[destn].latitude;
+    double source_long = airportGraph[source].longitude;
     double dest_long = airportGraph[destn].longitude;
-    // cout << airportGraph[source].latitude <<endl;
-    // cout << airportGraph[source].longitude << endl;
+    // cout << airportGraph.at(source).latitude << endl;
+    // cout << airportGraph.at(source).longitude << endl;
 
     //need to convert them all to radians now
     source_lat = (M_PI / 180) * source_lat;
@@ -129,8 +129,11 @@ double FlightGraph::calculateDistance(int source, int destn) {
     double diff_long = dest_long - source_long;
     double diff_lat = dest_lat - source_lat;
 
-    double dist = (sin(diff_lat/2) * sin(diff_lat/2)) + cos(source_lat) * cos(dest_lat) * (sin(diff_long) * sin(diff_long));
-    dist = 2 * asin(sqrt(dist)) * 6371000; //6371000 is the radius of the Earth in meters
-
+    // cout << diff_long << endl;
+    // cout << diff_lat << endl;
+    double dist = (sin(diff_lat/2) * sin(diff_lat/2)) + cos(source_lat) * cos(dest_lat) * (sin(diff_long/2) * sin(diff_long/2));
+    // cout << dist << endl;
+    dist = 2 * asin(sqrt(dist)) * 6356.752; //6356.752 r in earth in km
+    // cout << dist << endl;
     return dist;
 }

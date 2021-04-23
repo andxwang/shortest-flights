@@ -4,6 +4,7 @@
 #include "../FlightGraph.h"
 #include "../FlightAlgorithms.h"
 #include <iostream>
+#include <cmath>
 
 
 /*
@@ -34,8 +35,11 @@ TEST_CASE("Verify that calculateDistance works ") {
 	FlightGraph bruh;
 	bruh.loadAirports();
  	bruh.loadFlights();
-	REQUIRE(bruh.calculateDistance(0, 0) == 0);
-	// REQUIRE(bruh.calculateDistance())
+	//note distances calculated manually through online haversine calculator
+	REQUIRE(bruh.calculateDistance(1, 1) == 0);
+	REQUIRE(round(bruh.calculateDistance(1,2)) == 106);
+	REQUIRE(round(bruh.calculateDistance(2,3)) == 179);
+	REQUIRE(round(bruh.calculateDistance(4,5)) == 323);
 }
 
 /*
