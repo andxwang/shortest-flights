@@ -18,8 +18,8 @@ using namespace std;
 class FlightAlgorithms {
     public:
         FlightAlgorithms();
-        vector<Vertex> BFS(int start);
-
+        vector<int> BFS(int start);
+        vector<int> dijkstra(int start, int dest);
     private:        
         FlightGraph flightGraph_;
 };
