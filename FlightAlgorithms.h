@@ -19,8 +19,8 @@ class FlightAlgorithms {
     public:
         FlightAlgorithms();
         vector<int> BFS(int start);
-        vector<int> dijkstra(int start, int dest);
-        vector<int> A_star(int start, int dest);
+        vector<string> dijkstra(int start, int dest);
+        vector<string> A_star(int start, int dest);
     private:        
         FlightGraph flightGraph_;
         

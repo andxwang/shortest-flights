@@ -48,7 +48,7 @@ vector<int> FlightAlgorithms::BFS(int start) {
     return result;
 }
 
-vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
+vector<string> FlightAlgorithms::dijkstra(int start, int dest) {
     vector<double> distances(14110); //Initialize distances
     vector<int> previous(14110); // initialize a map that maps current node -> its previous node
 
@@ -105,14 +105,14 @@ vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
         }
     }
     //   extract path from previous
-    vector<int> path; //used for path storage; 
+    vector<string> path; //used for path storage; 
     curr = dest; //set current to destination
     if (previous[curr] != -1) { //if there is a possible path between the destination and start
         while (curr != start) { //while current airport is not the start
-            path.push_back(curr); //add airport to path
+            path.push_back(flightGraph_.airportGraph[curr].code); //add airport to path
             curr = previous[curr]; //set next airport to airport before
         }
-        path.push_back(curr); //push back the starting airport
+        path.push_back(flightGraph_.airportGraph[curr].code); //push back the starting airport
     }
     reverse(path.begin(), path.end()); //reverse the path since it is backwards
     //   return path and distance; distance to be implemented later
@@ -120,7 +120,7 @@ vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
 }
 
 
-vector<int> FlightAlgorithms::A_star(int start, int dest) {
+vector<string> FlightAlgorithms::A_star(int start, int dest) {
     vector<double> distances(14110); //Initialize distances
     vector<int> previous(14110); // initialize a map that maps current node -> its previous node
 
@@ -177,14 +177,14 @@ vector<int> FlightAlgorithms::A_star(int start, int dest) {
         }
     }
     //   extract path from previous
-    vector<int> path; //used for path storage; 
+    vector<string> path; //used for path storage; 
     curr = dest; //set current to destination
     if (previous[curr] != -1) { //if there is a possible path between the destination and start
         while (curr != start) { //while current airport is not the start
-            path.push_back(curr); //add airport to path
+            path.push_back(flightGraph_.airportGraph[curr].code); //add airport to path
             curr = previous[curr]; //set next airport to airport before
         }
-        path.push_back(curr); //push back the starting airport
+        path.push_back(flightGraph_.airportGraph[curr].code); //push back the starting airport
     }
     reverse(path.begin(), path.end()); //reverse the path since it is backwards
     //   return path and distance; distance to be implemented later

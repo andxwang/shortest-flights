@@ -9,8 +9,8 @@ int main() {
 	cin >> x; 
 	cout << "Enter a destination: ";
 	cin >> y;
-	vector<int> airports = fa.A_star(x, y);
-	vector<int> dij = fa.dijkstra(x,y);
+	vector<string> airports = fa.A_star(x, y);
+	vector<string> dij = fa.dijkstra(x,y);
 	//will lookup for airport codes later (can use 3830, 3361 for now) 
 	//Shortest path for ORD->SYD. Returns ORD->LAX->SYD
 	cout<<"A-star" << endl;
