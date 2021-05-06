@@ -89,22 +89,12 @@ vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
         }
         //       for neighbor in current_node's neighbors and not in visited:
         for (auto it = flightGraph_.airportGraph[curr].airports.begin(); it != flightGraph_.airportGraph[curr].airports.end(); it++) {    //  search all departures from current airport
-            if (visited[it->first] == false) {  //  next airport has not been visited
+            if (visited[it->first] == false) {  //  next airport has not been visited / added to the queue
                 airportQueue.push_back(it->first);   //  enqueue next airport
-                if (it->first == 2188) {
-                    cout<<"DIJ 2188"<<endl;
-                }
-                if (it->first == 3351) {
-                    cout<<"DIJ 3351"<<endl;
-                }
-                if (it->first ==3714) {
-                    cout<<"DIJ 3714"<<endl;
-                }
-                if (it->first ==3714) {
-                    cout<<"DIJ 11051"<<endl;
-                }
                 visited[it->first] = true;   // set to visited; added to queue already
-                double dummy = flightGraph_.calculateDistance(curr, dest); //lol
+            }
+            // Check if next airport has not been already added to the queue before, or if it is in the queue...
+            if (visited[it->first] == false || find(airportQueue.begin(), airportQueue.end(), it->first) != airportQueue.end()) {
                 double neighbor_dist = distances[curr] + (it->second).getWeight(); //  distance of node of current iteration for the start
                 //           if update its neighbor's distances:
                 if (neighbor_dist < distances[it->first]) {
