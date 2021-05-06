@@ -49,4 +49,15 @@ TEST_CASE("Verify that null and \\N values are not in airports vector") {
 	}
 }
 
-	
+//next things to write
+TEST_CASE("Verify BFS is working") {
+	REQUIRE(1 == 1);
+}
+
+TEST_CASE("Verify Dijkstra's is working") {
+	REQUIRE(1 == 1);
+}
+
+TEST_CASE("Verify that A* search is working") {
+	REQUIRE(1 == 1);
+}
