@@ -13,6 +13,7 @@ int main() {
 	vector<int> dij = fa.dijkstra(x,y);
 	//will lookup for airport codes later (can use 3830, 3361 for now) 
 	//Shortest path for ORD->SYD. Returns ORD->LAX->SYD
+	cout<<"A-star" << endl;
 	for (size_t i = 0;  i  < airports.size(); i++) {
 		cout << airports[i]<<endl; 
 		if(i < airports.size() - 1) {

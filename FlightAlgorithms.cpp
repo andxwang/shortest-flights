@@ -165,31 +165,11 @@ vector<int> FlightAlgorithms::A_star(int start, int dest) {
 
                 airportQueue.push_back(it->first);   //  enqueue next airport
                 visited[it->first] = true;   // set to visited; added to queue already
-
+            }
+            if (visited[it->first] == false || find(airportQueue.begin(), airportQueue.end(), it->first) != airportQueue.end()) {
                 double neighbor_dist = (distances[curr] + (it->second).getWeight())  + flightGraph_.calculateDistance(curr, dest); //  distance of node of current iteration for the start
                 //           if update its neighbor's distances:
                 if (neighbor_dist < distances[it->first]) {
-                    if (it->first == 2188) {
-                        cout<<"AAA 2188"<<endl;
-                        cout << "AAA neighbor dist " << neighbor_dist << endl;
-                        cout << "AAA dist[it->first] " << distances[it->first]<< endl;
-
-                    }
-                    if (it->first == 3351) {
-                        cout<<"AAA 3351"<<endl;
-                        cout << "AAA neighbor dist " << neighbor_dist << endl;
-                        cout << "AAA dist[it->first] " << distances[it->first]<< endl;
-                    }
-                    if (it->first == 3714) {
-                        cout<<"AAA 3714"<<endl;
-                        cout << "AAA neighbor dist " << neighbor_dist << endl;
-                        cout << "AAA dist[it->first] " << distances[it->first]<< endl;
-                    }
-                    if (it->first == 11051) {
-                        cout<<"AAA 11051"<<endl;
-                        cout << "AAA neighbor dist " << neighbor_dist << endl;
-                        cout << "AAA dist[it->first] " << distances[it->first]<< endl;
-                    }
                     distances[it->first] = neighbor_dist; //update neighbor's distance
                     previous[it->first] = curr;  //    set previous[neighbor] = current_node
                 }
