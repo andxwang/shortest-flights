@@ -22,4 +22,5 @@ class FlightAlgorithms {
         vector<int> dijkstra(int start, int dest);
     private:        
         FlightGraph flightGraph_;
+        
 };

@@ -44,7 +44,6 @@ vector<int> FlightAlgorithms::BFS(int start) {
             }
         }
     }
-    
     return result;
 }
 
