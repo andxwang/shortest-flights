@@ -51,17 +51,13 @@ void FlightGraph::loadAirports() {
         }
         v.push_back(lat);
         v.push_back(lon);
-        
         // testing printing
         // cout << "PRINTING VECTOR" << endl;
         // for (auto e : v) {
         //     cout << e << endl;
         // }
-
-
         // add to vector to track airports
         airports.push_back(v);
-
         // insert Vertex using vector
         insertVertex(v);
     }
