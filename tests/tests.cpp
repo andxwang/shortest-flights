@@ -60,13 +60,25 @@ TEST_CASE("Verify that null and \\N values are not in airports vector") {
 //next things to write
 //potenitally check them manually against a subset with like 3 or 4 nodes only
 TEST_CASE("Verify BFS is working") {
-	REQUIRE(1 == 1);
+	// REQUIRE(1 == 1);
 	// I think we can validate this by just checking to make sure that
 	// the weight of each node matches the distance calculated. It's 
 	// redundant but this is the best I can think of. 
 	// The only other thing we can really check is if every single node
 	// has been visited. 
-
+	FlightAlgorithms fa;
+	vector<int> start_from_CMI = fa.BFS(4049); // CMI airport code
+	vector<int> start_from_CMI_subset;
+	for (int i = 0; i < 4; i++) {
+		start_from_CMI_subset.push_back(start_from_CMI[i]);
+		std::cout << start_from_CMI[i] << std::endl;
+	}
+	vector<int> toCompare;
+	toCompare.push_back(4049); // Champaign
+	toCompare.push_back(3830); // Chicago O'Hare
+	toCompare.push_back(3670); // Dallas-FW
+	toCompare.push_back(3876); // Charlotte
+	REQUIRE(start_from_CMI_subset == toCompare);
 }
 //Checking that all points in the BFS created from different points are accessed
 TEST_CASE("BFS Verify") {

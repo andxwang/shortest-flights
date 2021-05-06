@@ -20,7 +20,7 @@ void FlightGraph::insertVertex(vector<string> line) {
 // load the airports into a vector, 
 // to be passed into insertVertex 
 void FlightGraph::loadAirports() {
-    ifstream airportsfile("data/airports_sub.dat");
+    ifstream airportsfile("data/small_airport.dat");
     string line;
     stringstream ss(line);
     char delim = ',';
