@@ -121,7 +121,8 @@ vector<string> FlightAlgorithms::dijkstra(int start, int dest) {
 
 
 vector<string> FlightAlgorithms::A_star(int start, int dest) {
-    vector<double> distances(14110); //Initialize distances
+    vector<double> gscore(14110); //Initialize distances
+    vector<double> fscore(14110);
     vector<int> previous(14110); // initialize a map that maps current node -> its previous node
 
     vector<int> airportQueue;    // queue for Djikstra
@@ -130,11 +131,13 @@ vector<string> FlightAlgorithms::A_star(int start, int dest) {
     for (unsigned i = 0; i < 14110; i++) {
         visited[i] = false; //initialize all indices of visited to false
         previous[i] = -1;  //initialize all previous airports to none (-1)
-        distances[i] = std::numeric_limits<double>::infinity(); //  set all distances to infinity
+        gscore[i] = std::numeric_limits<double>::infinity(); //  set all distances to infinity
+        fscore[i] = std::numeric_limits<double>::infinity(); 
     }
 
     visited[start] = true; // set start to visited
-    distances[start] = 0; // set distance from start to start to be 0
+    gscore[start] = 0; // set distance from start to start to be 0
+    fscore[start] = flightGraph_.calculateDistance(start, dest);
     previous[start] = start; // initialize starting airport to start
  
     int curr; //ID of current airport
@@ -147,8 +150,8 @@ vector<string> FlightAlgorithms::A_star(int start, int dest) {
         double min_dist = std::numeric_limits<double>::infinity(); //set initial distance to infinity
         int min_i; //stores the index of the node with the shortest distance from the start
         for (size_t i = 0; i < airportQueue.size(); i++) { // find node in queue with min distanceFromStart
-            if (distances[airportQueue[i]] < min_dist) { //if the airport id in the queue has a distance less than min distance...
-                min_dist = distances[airportQueue[i]]; //Set new minimum distance
+            if (fscore[airportQueue[i]] < min_dist) { //if the airport id in the queue has a distance less than min distance...
+                min_dist = fscore[airportQueue[i]]; //Set new minimum distance
                 min_i = i; //set the minimum index to index within the queue that corresponds with the airport that has the minimum distance
             }
         }
@@ -167,10 +170,11 @@ vector<string> FlightAlgorithms::A_star(int start, int dest) {
                 visited[it->first] = true;   // set to visited; added to queue already
             }
             if (visited[it->first] == false || find(airportQueue.begin(), airportQueue.end(), it->first) != airportQueue.end()) {
-                double neighbor_dist = (distances[curr] + (it->second).getWeight())  + flightGraph_.calculateDistance(curr, dest); //  distance of node of current iteration for the start
-                //           if update its neighbor's distances:
-                if (neighbor_dist < distances[it->first]) {
-                    distances[it->first] = neighbor_dist; //update neighbor's distance
+                double tent_gscore = gscore[curr] + (it->second).getWeight(); //  distance of node of current iteration for the start
+                //           if update its neighbor's gscore:
+                if (tent_gscore < gscore[it->first]) {
+                    gscore[it->first] = tent_gscore; //update neighbor's distance
+                    fscore[it->first] = tent_gscore + flightGraph_.calculateDistance(it->first, dest);
                     previous[it->first] = curr;  //    set previous[neighbor] = current_node
                 }
             }
