@@ -108,8 +108,11 @@ TEST_CASE("Edge Check") {
 }
 
 TEST_CASE("Verify Dijkstra's is working") {
-	FlightAlgorithms f;
-	REQUIRE(6 == 6);
+	FlightAlgorithms fa;
+	vector<int> airports;
+	airports = fa.dijkstra(3830, 3670);
+	
+	// REQUIRE(6 == 6);
 	//same strategy as BFS ig 
 }
 
