@@ -1,5 +1,5 @@
 #include "FlightAlgorithms.h"
-
+#include <iostream>
 using namespace std;
 
 //  Constructor
@@ -36,6 +36,7 @@ vector<int> FlightAlgorithms::BFS(int start) {
     while (!airportQueue.empty()) {
         int curr = airportQueue.front();
         result.push_back(flightGraph_.airportGraph[curr].id); // add current airport to result
+        // std::cout << flightGraph_.airportGraph[curr].id << std::endl;
         airportQueue.pop();
         for (auto it = flightGraph_.airportGraph[curr].airports.begin(); it != flightGraph_.airportGraph[curr].airports.end(); it++) {    //  search all departures from current airport
             if (visited[it->first] == false) {  //  next airport has not been visited
