@@ -38,3 +38,5 @@ Continuing to write more complex test cases
 * Debugged Dijkstra's and A* algorithms.
 * Fixed Dijkstra's algorithm
 * Tested on route starting from DAB (Daytona Beach) to PER (Perth). Found result to be DAB -> ATL -> DFW -> BNE -> PER
+* Fixed A* algorithm
+* Rewrote test cases
