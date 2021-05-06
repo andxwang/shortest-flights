@@ -98,27 +98,6 @@ vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
                 double neighbor_dist = distances[curr] + (it->second).getWeight(); //  distance of node of current iteration for the start
                 //           if update its neighbor's distances:
                 if (neighbor_dist < distances[it->first]) {
-                    if (it->first == 2188) {
-                        cout<<"DDD 2188"<<endl;
-                        cout << "DDD neighbor dist " << neighbor_dist << endl;
-                        cout << "DDD dist[it->first] " << distances[it->first]<< endl;
-
-                    }
-                    if (it->first == 3351) {
-                        cout<<"DDD 3351"<<endl;
-                        cout << "DDD neighbor dist " << neighbor_dist << endl;
-                        cout << "DDD dist[it->first] " << distances[it->first]<< endl;
-                    }
-                    if (it->first == 3714) {
-                        cout<<"DDD 3714"<<endl;
-                        cout << "DDD neighbor dist " << neighbor_dist << endl;
-                        cout << "DDD dist[it->first] " << distances[it->first]<< endl;
-                    }
-                    if (it->first == 11051) {
-                        cout<<"DDD 11051"<<endl;
-                        cout << "DDD neighbor dist " << neighbor_dist << endl;
-                        cout << "DDD dist[it->first] " << distances[it->first]<< endl;
-                    }
                     distances[it->first] = neighbor_dist; //update neighbor's distance
                     previous[it->first] = curr;  //    set previous[neighbor] = current_node
                 }
