@@ -58,12 +58,20 @@ TEST_CASE("Verify that null and \\N values are not in airports vector") {
 }
 
 //next things to write
+//potenitally check them manually against a subset with like 3 or 4 nodes only
 TEST_CASE("Verify BFS is working") {
 	REQUIRE(1 == 1);
+	// I think we can validate this by just checking to make sure that
+	// the weight of each node matches the distance calculated. It's 
+	// redundant but this is the best I can think of. 
+	// The only other thing we can really check is if every single node
+	// has been visited. 
+
 }
 
 TEST_CASE("Verify Dijkstra's is working") {
 	REQUIRE(1 == 1);
+	//same strategy as BFS ig 
 }
 
 TEST_CASE("Verify that A* search is working") {
