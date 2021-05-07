@@ -10,12 +10,6 @@ FlightAlgorithms::FlightAlgorithms() {
     flightGraph_.loadFlights();
 }
 
-/*
-Note: lines 40-42 likely have issues because of the iterator type. Need to fix.
-If you want to start writing test cases comment out the while loop and then 
-your tests should work- at least for the other functions.
-Like ik the case for calculateDistance is working now.
-*/
 
 // BFS to traverse from a start point (airport id), returns a vector or vertices
 vector<string> FlightAlgorithms::BFS(string start_code) {
@@ -23,9 +17,6 @@ vector<string> FlightAlgorithms::BFS(string start_code) {
     int start = flightGraph_.code_to_id[start_code];
 
     // Create visited vector, set all values to false, 14110 is ID of last airport
-    // vector<bool> visited(14110, false);   
-
-    // USE THIS IF ABOVE DOESN'T WORK
     vector<bool> visited(14110); 
     for (unsigned i = 0; i < 14110; i++) {
         visited[i] = false;
