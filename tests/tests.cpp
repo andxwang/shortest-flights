@@ -105,24 +105,24 @@ TEST_CASE("Verify BFS 2") {
 	REQUIRE(start_TTN_subset == toCompare);
 }
 
-Checking that all points in the BFS created from different points are accessed
-TEST_CASE("BFS Verify") {
-  FlightAlgorithms f;
-  vector<int> v1 = f.BFS(0);
-  vector<int> v2 = f.BFS(1);
-  vector<int> v3 = f.BFS(500);
-  for (int i = 0; i < v1.size(); i++) {
-    REQUIRE(v1[i] >= 0);
-    REQUIRE(v2[i] >= 0);
-    REQUIRE(v3[i] >= 0);
-    REQUIRE(v1[i] < 14110);
-    REQUIRE(v2[i] < 14110);
-    REQUIRE(v3[i] < 14110);
-  }
-}   
+// Checking that all points in the BFS created from different points are accessed
+// TEST_CASE("BFS Verify") {
+//   FlightAlgorithms f;
+//   vector<int> v1 = f.BFS(0);
+//   vector<int> v2 = f.BFS(1);
+//   vector<int> v3 = f.BFS(500);
+//   for (int i = 0; i < v1.size(); i++) {
+//     REQUIRE(v1[i] >= 0);
+//     REQUIRE(v2[i] >= 0);
+//     REQUIRE(v3[i] >= 0);
+//     REQUIRE(v1[i] < 14110);
+//     REQUIRE(v2[i] < 14110);
+//     REQUIRE(v3[i] < 14110);
+//   }
+// }   
 
-Checking all edges in graph to see sum
-for this one, im trying to check that no matter where we start the BFS, the sum of edge weights will remain the same, but i havent figured out how to loop it yet. 
+// Checking all edges in graph to see sum
+// for this one, im trying to check that no matter where we start the BFS, the sum of edge weights will remain the same, but i havent figured out how to loop it yet. 
 TEST_CASE("Edge Check") {
   FlightGraph f;
   f.loadFlights();
