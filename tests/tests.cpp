@@ -76,61 +76,60 @@ TEST_CASE("Verify BFS 1") {
   REQUIRE(start_from_CMI_subset == toCompare);
 }
 
-// TEST_CASE("Verify BFS 2") {
-// 	// routes data might be more outdated than flightconnections.com
-// 	FlightAlgorithms fa;
-// 	vector<int> start_TTN = fa.BFS(3447); // Trenton
-// 	vector<int> start_TTN_subset;
-// 	vector<int> toCompare;
-// 	  toCompare.push_back(3447);
-//   toCompare.push_back(3488);
-//   toCompare.push_back(3626);
-//   toCompare.push_back(3793);
-//   toCompare.push_back(3747);
-//   toCompare.push_back(3878);
-//   toCompare.push_back(3533);
-//   toCompare.push_back(3645);
-//   toCompare.push_back(3646);
-//   toCompare.push_back(3876);
-//   toCompare.push_back(6989);
-// 	for (int i = 0; i < toCompare.size(); i++) {
-// 		start_TTN_subset.push_back(start_TTN[i]);
-// 		//std::cout << start_TTN[i] << " ";
-// 		// results: 
-// 		// 3447 3488 3626 3793 3747 3878 3533 3645 3646 3876 6989
-// 		// start, Cincinatti, Raleigh-Durham, Fort Myers, Chicago Midway, 
-// 		// Orlando, Ft. Lauderdale, Detroit, Tampa, Charlotte, St. Augustine
-// 	}
-// 	std::cout << std::endl;
+TEST_CASE("Verify BFS 2") {
+	// routes data might be more outdated than flightconnections.com
+	FlightAlgorithms fa;
+	vector<string> start_TTN = fa.BFS("TTN"); // Trenton
+	vector<string> start_TTN_subset;
+	vector<string> toCompare;
+	toCompare.push_back("TTN");
+  toCompare.push_back("CVG");
+  toCompare.push_back("RDU");
+  toCompare.push_back("RSW");
+  toCompare.push_back("MDW");
+  toCompare.push_back("MCO");
+  toCompare.push_back("FLL");
+  toCompare.push_back("DTW");
+  toCompare.push_back("TPA");
+  toCompare.push_back("CLT");
+  toCompare.push_back("UST");
+	for (int i = 0; i < toCompare.size(); i++) {
+		start_TTN_subset.push_back(start_TTN[i]);
+		//std::cout << start_TTN[i] << " ";
+		// results: 
+		// 3447 3488 3626 3793 3747 3878 3533 3645 3646 3876 6989
+		// start, Cincinatti, Raleigh-Durham, Fort Myers, Chicago Midway, 
+		// Orlando, Ft. Lauderdale, Detroit, Tampa, Charlotte, St. Augustine
+	}
 
-// 	REQUIRE(start_TTN_subset == toCompare);
-// }
+	REQUIRE(start_TTN_subset == toCompare);
+}
 
-//Checking that all points in the BFS created from different points are accessed
-// TEST_CASE("BFS Verify") {
-//   FlightAlgorithms f;
-//   vector<int> v1 = f.BFS(0);
-//   vector<int> v2 = f.BFS(1);
-//   vector<int> v3 = f.BFS(500);
-//   for (int i = 0; i < v1.size(); i++) {
-//     REQUIRE(v1[i] >= 0);
-//     REQUIRE(v2[i] >= 0);
-//     REQUIRE(v3[i] >= 0);
-//     REQUIRE(v1[i] < 14110);
-//     REQUIRE(v2[i] < 14110);
-//     REQUIRE(v3[i] < 14110);
-//   }
-// }   
+Checking that all points in the BFS created from different points are accessed
+TEST_CASE("BFS Verify") {
+  FlightAlgorithms f;
+  vector<int> v1 = f.BFS(0);
+  vector<int> v2 = f.BFS(1);
+  vector<int> v3 = f.BFS(500);
+  for (int i = 0; i < v1.size(); i++) {
+    REQUIRE(v1[i] >= 0);
+    REQUIRE(v2[i] >= 0);
+    REQUIRE(v3[i] >= 0);
+    REQUIRE(v1[i] < 14110);
+    REQUIRE(v2[i] < 14110);
+    REQUIRE(v3[i] < 14110);
+  }
+}   
 
-//Checking all edges in graph to see sum
-//for this one, im trying to check that no matter where we start the BFS, the sum of edge weights will remain the same, but i havent figured out how to loop it yet. 
-// TEST_CASE("Edge Check") {
-//   FlightGraph f;
-//   f.loadFlights();
-//   int sum = 0; 
-//   //for (int i = 0; i < loop through )
-//   REQUIRE(420 == 420);
-// }
+Checking all edges in graph to see sum
+for this one, im trying to check that no matter where we start the BFS, the sum of edge weights will remain the same, but i havent figured out how to loop it yet. 
+TEST_CASE("Edge Check") {
+  FlightGraph f;
+  f.loadFlights();
+  int sum = 0; 
+  //for (int i = 0; i < loop through )
+  REQUIRE(420 == 420);
+}
 
 TEST_CASE("Verify Dijkstra's is working 1") {
   FlightAlgorithms fa;
