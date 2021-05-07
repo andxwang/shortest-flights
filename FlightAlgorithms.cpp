@@ -111,6 +111,7 @@ vector<int> FlightAlgorithms::dijkstra(int start, int dest) {
             path.push_back(curr); //add airport to path
             curr = previous[curr]; //set next airport to airport before
         }
+        path.push_back(curr); //push back the starting airport
     }
     reverse(path.begin(), path.end()); //reverse the path since it is backwards
     //   return path and distance; distance to be implemented later

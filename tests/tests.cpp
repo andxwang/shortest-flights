@@ -110,10 +110,15 @@ TEST_CASE("Edge Check") {
 TEST_CASE("Verify Dijkstra's is working") {
 	FlightAlgorithms fa;
 	vector<int> airports;
-	airports = fa.dijkstra(3830, 3670);
-	
-	// REQUIRE(6 == 6);
-	//same strategy as BFS ig 
+	airports = fa.dijkstra(3830, 3670); //ORD and Dallas
+	for (size_t i = 0;  i  < airports.size(); i++) {
+		cout << airports[i] << endl;
+	}
+	vector<int> toCompare;
+	toCompare.push_back(3830); // Chicago O'Hare
+	toCompare.push_back(3670); // Dallas-FW
+	// toCompare.push_back(3876); // Charlotte
+	REQUIRE(airports == toCompare);
 }
 
 TEST_CASE("Verify that A* search is working") {
