@@ -17,8 +17,6 @@ Abhyan: Write BFS tests
 
 
 ## Week 3
-
-
 Discussed MakeFile
 Removed unused func readFromFile
 Discussed /N entries in routes.dat and airports.dat file
@@ -28,3 +26,10 @@ Dropped entries with /N values in destination code of routes.dat
 Modified BFS to allow for compiling
 Removed parameters from main()
 Created FlightAlgorithms object in main
+Assigned Djikstras and A* algorithms to be implemented
+
+## Week 4
+Implemented Djikstra's algorithm
+Worked through simple test cases to verify BFS and Djikstra's is working
+continuing to work on A* algorithm. 
+Continuing to write more complex test cases
