@@ -16,6 +16,8 @@ using namespace std;
 
 class FlightGraph {
     public:
+        vector<vector<string>> routes;
+        vector<vector<string>> airports;
         map<int, Vertex> airportGraph; // maps id to Vertex (airport)
         map<string, int> code_to_id; // maps 3-letter airport code to its id
         void insertVertex(vector<string> line);
