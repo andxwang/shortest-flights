@@ -1,4 +1,4 @@
-EXENAME = finalproj
+EXENAME = proj
 # Object Types
 OBJS = main.o FlightGraph.o FlightAlgorithms.o
 
