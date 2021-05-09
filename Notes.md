@@ -35,6 +35,6 @@ continuing to work on A* algorithm.
 Continuing to write more complex test cases  
 
 ## Week 4.5
-Debugged Dijkstra's and A* algorithms.
-Fixed Dijkstra's algorithm
-Tested on route starting from DAB (Daytona Beach) to PER (Perth). Found result to be DAB -> ATL -> DFW -> BNE -> PER
+* Debugged Dijkstra's and A* algorithms.
+* Fixed Dijkstra's algorithm
+* Tested on route starting from DAB (Daytona Beach) to PER (Perth). Found result to be DAB -> ATL -> DFW -> BNE -> PER
