@@ -220,7 +220,7 @@ TEST_CASE("Verify A* search 2") {
 	REQUIRE(airports == toCompare);
 }
 
-//CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->MCT->PER.
+//CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->DOH->PER.
 TEST_CASE("Verify A* search 3") {
 	// The online programs don't show this as a possibility
 	// Makes sense since flight paths aren't a straight distance like we assumed
