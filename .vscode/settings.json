@@ -77,6 +77,8 @@
         "clocale": "cpp",
         "condition_variable": "cpp",
         "memory_resource": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "strstream": "cpp",
+        "queue": "cpp"
     }
 }

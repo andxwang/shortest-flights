@@ -89,17 +89,16 @@ TEST_CASE("Verify BFS 2") {
 	vector<int> start_TTN_subset;
 	vector<int> toCompare;
 	toCompare.push_back(3447);
-	toCompare.push_back(3626); // Raleigh-Durham
-	toCompare.push_back(3876); // Charlotte
-	toCompare.push_back(3515); // Myrtle Beach
-	toCompare.push_back(3806); // Charleston
-	toCompare.push_back(3830); // Chicago
-	toCompare.push_back(3682); // Atlanta
-	toCompare.push_back(3878); // Orlando
-	toCompare.push_back(3646); // Tampa
-	toCompare.push_back(3793); // Fort Myers
-	toCompare.push_back(3576); // Miami
-	
+  toCompare.push_back(3488);
+  toCompare.push_back(3626);
+  toCompare.push_back(3793);
+  toCompare.push_back(3747);
+  toCompare.push_back(3878);
+  toCompare.push_back(3533);
+  toCompare.push_back(3645);
+  toCompare.push_back(3646);
+  toCompare.push_back(3876);
+  toCompare.push_back(6989);
 	for (int i = 0; i < toCompare.size(); i++) {
 		start_TTN_subset.push_back(start_TTN[i]);
 		std::cout << start_TTN[i] << " ";
@@ -189,57 +188,57 @@ TEST_CASE("Verify Dijkstra's 3") {
 	toCompare.push_back(3351);
 	REQUIRE(airports == toCompare);
 }
-
+//DAB -> ATL -> DXB -> PER how does this find a shorter path lol
 //will use same tests as Dijkstra's it should just run faster
-// TEST_CASE("Verify A* search 1") {
-//   FlightAlgorithms fa;
-//   vector<int> airports;
-//   airports = fa.A_star(3830, 3670); //ORD and Dallas
-//   // for (size_t i = 0;  i  < airports.size(); i++) {
-//   //  cout << airports[i] << endl;
-//   // }
-//   vector<int> toCompare;
-//   toCompare.push_back(3830); // Chicago O'Hare
-//   toCompare.push_back(3670); // Dallas-FW
-//   // toCompare.push_back(3876); // Charlotte
-//   REQUIRE(airports == toCompare);
-// }
+TEST_CASE("Verify A* search 1") {
+  FlightAlgorithms fa;
+  vector<int> airports;
+  airports = fa.A_star(3830, 3670); //ORD and Dallas
+  // for (size_t i = 0;  i  < airports.size(); i++) {
+  //  cout << airports[i] << endl;
+  // }
+  vector<int> toCompare;
+  toCompare.push_back(3830); // Chicago O'Hare
+  toCompare.push_back(3670); // Dallas-FW
+  // toCompare.push_back(3876); // Charlotte
+  REQUIRE(airports == toCompare);
+}
 
-// //CASE 2 Shortest path for ORD->SYD. Returns ORD->LAX->SYD
-// TEST_CASE("Verify A* search 2") {
-// 	FlightAlgorithms fa;
-// 	vector<int> airports;
-// 	airports = fa.A_star(3830, 3361); //ORD to SYD
-// 	//just wanna see what this looks like 
-// 	// for (size_t i = 0;  i  < airports.size(); i++) {
-// 	//  cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
-// 	// }
-// 	vector<int> toCompare;
-// 	toCompare.push_back(3830); 
-// 	toCompare.push_back(3484);
-// 	toCompare.push_back(3361);
-// 	REQUIRE(airports == toCompare);
-// }
+//CASE 2 Shortest path for ORD->SYD. Returns ORD->LAX->SYD
+TEST_CASE("Verify A* search 2") {
+	FlightAlgorithms fa;
+	vector<int> airports;
+	airports = fa.A_star(3830, 3361); //ORD to SYD
+	//just wanna see what this looks like 
+	// for (size_t i = 0;  i  < airports.size(); i++) {
+	//  cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
+	// }
+	vector<int> toCompare;
+	toCompare.push_back(3830); 
+	toCompare.push_back(3484);
+	toCompare.push_back(3361);
+	REQUIRE(airports == toCompare);
+}
 
-// //CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->MCT->PER.
-// TEST_CASE("Verify A* search 3") {
-// 	// The online programs don't show this as a possibility
-// 	// Makes sense since flight paths aren't a straight distance like we assumed
-// 	// The overall path does technically make sense though
-// 	FlightAlgorithms fa;
-// 	vector<int> airports;
-// 	airports = fa.A_star(3950, 3351);
-// 	// for (size_t i = 0;  i  < airports.size(); i++) {
-// 	// 	cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
-// 	// }
-// 	vector<int> toCompare;
-// 	toCompare.push_back(3950);
-// 	toCompare.push_back(3682);
-// 	toCompare.push_back(3714);
-// 	toCompare.push_back(11051);
-// 	toCompare.push_back(3351);
-// 	REQUIRE(airports == toCompare);
-// }
+//CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->MCT->PER.
+TEST_CASE("Verify A* search 3") {
+	// The online programs don't show this as a possibility
+	// Makes sense since flight paths aren't a straight distance like we assumed
+	// The overall path does technically make sense though
+	FlightAlgorithms fa;
+	vector<int> airports;
+	airports = fa.A_star(3950, 3351);
+	// for (size_t i = 0;  i  < airports.size(); i++) {
+	// 	cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
+	// }
+	vector<int> toCompare;
+	toCompare.push_back(3950);
+	toCompare.push_back(3682);
+	toCompare.push_back(3714);
+	toCompare.push_back(11051);
+	toCompare.push_back(3351);
+	REQUIRE(airports == toCompare);
+}
 
 
 //run-time test case
@@ -247,16 +246,16 @@ TEST_CASE("Verify that A* is faster than Dijkstra's") {
 	FlightAlgorithms fa;
 	vector<int> airports;
   auto start = std::chrono::high_resolution_clock::now();
-	airports = fa.dijkstra(3950, 3351);
+	airports = fa.dijkstra(3830, 3361);
   auto stop = std::chrono::high_resolution_clock::now();
   auto time = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
   cout << "Dijkstra's Runtime: " << time.count() << " microseconds" << endl;
   airports.clear();
-  REQUIRE(1 == 1); //comment out once we write A*  
-  // auto start2 = std::chrono::high_resolution_clock::now();
-  // airports = fa.A_star(3950, 3351); //or whatever we decide to name it
-  // auto stop2 = std::chrono::high_resolution_clock::now();
-  // auto time2 = std::chrono::duration_cast<std::chrono::microseconds>(stop2 - start2);
-  // cout << "A* Search Runtime: " << time2.count() << " microseconds" << endl;
-  // REQUIRE(time2.count() <= time.count());
+  // REQUIRE(1 == 1); //comment out once we write A*  
+  auto start2 = std::chrono::high_resolution_clock::now();
+  airports = fa.A_star(3830, 3361); //or whatever we decide to name it
+  auto stop2 = std::chrono::high_resolution_clock::now();
+  auto time2 = std::chrono::duration_cast<std::chrono::microseconds>(stop2 - start2);
+  cout << "A* Search Runtime: " << time2.count() << " microseconds" << endl;
+  REQUIRE(time2.count() <= time.count());
 }
