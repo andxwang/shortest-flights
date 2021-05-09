@@ -101,7 +101,7 @@ TEST_CASE("Verify BFS 2") {
   toCompare.push_back(6989);
 	for (int i = 0; i < toCompare.size(); i++) {
 		start_TTN_subset.push_back(start_TTN[i]);
-		std::cout << start_TTN[i] << " ";
+		//std::cout << start_TTN[i] << " ";
 		// results: 
 		// 3447 3488 3626 3793 3747 3878 3533 3645 3646 3876 6989
 		// start, Cincinatti, Raleigh-Durham, Fort Myers, Chicago Midway, 

@@ -70,6 +70,7 @@ void FlightGraph::insertEdge(vector<string> line) {
     int source_ID = atoi(line[0].c_str());
     int destn_ID = atoi(line[1].c_str());
     double weight = calculateDistance(source_ID, destn_ID);
+    
     Edge flight(source_ID, destn_ID, weight);
     // if edge doesn't already exist, add to airports
     if (airportGraph[source_ID].airports.find(destn_ID) == airportGraph[source_ID].airports.end()) {
@@ -121,8 +122,8 @@ double FlightGraph::calculateDistance(int source, int destn) {
     dest_long = (M_PI / 180) * dest_long;
 
     //using the Haversine formula: https://en.wikipedia.org/wiki/Haversine_formula
-    double diff_long = dest_long - source_long;
-    double diff_lat = dest_lat - source_lat;
+    double diff_long = abs(dest_long - source_long);
+    double diff_lat = abs(dest_lat - source_lat);
 
     // cout << diff_long << endl;
     // cout << diff_lat << endl;
