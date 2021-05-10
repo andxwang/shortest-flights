@@ -18,7 +18,10 @@ Like ik the case for calculateDistance is working now.
 */
 
 // BFS to traverse from a start point (airport id), returns a vector or vertices
-vector<string> FlightAlgorithms::BFS(int start) {
+vector<string> FlightAlgorithms::BFS(string start_code) {
+    // first convert code strings to id ints
+    int start = flightGraph_.code_to_id[start_code];
+
     // Create visited vector, set all values to false, 14110 is ID of last airport
     // vector<bool> visited(14110, false);   
 
@@ -37,7 +40,6 @@ vector<string> FlightAlgorithms::BFS(int start) {
     while (!airportQueue.empty()) {
         int curr = airportQueue.front();
         result.push_back(flightGraph_.airportGraph[curr].code); // add current airport to result
-        // std::cout << flightGraph_.airportGraph[curr].id << std::endl;
         airportQueue.pop();
         for (auto it = flightGraph_.airportGraph[curr].airports.begin(); it != flightGraph_.airportGraph[curr].airports.end(); it++) {    //  search all departures from current airport
             if (visited[it->first] == false) {  //  next airport has not been visited
@@ -52,7 +54,11 @@ vector<string> FlightAlgorithms::BFS(int start) {
     return result;
 }
 
-vector<string> FlightAlgorithms::dijkstra(int start, int dest) {
+vector<string> FlightAlgorithms::dijkstra(string start_code, string dest_code) {
+    // first convert code strings to id ints
+    int start = flightGraph_.code_to_id[start_code];
+    int dest = flightGraph_.code_to_id[dest_code];
+
     vector<double> distances(14110); //Initialize distances
     vector<int> previous(14110); // initialize a map that maps current node -> its previous node
 
@@ -122,7 +128,11 @@ vector<string> FlightAlgorithms::dijkstra(int start, int dest) {
 }
 
 
-vector<string> FlightAlgorithms::A_star(int start, int dest) {
+vector<string> FlightAlgorithms::A_star(string start_code, string dest_code) {
+    // first convert code strings to id ints
+    int start = flightGraph_.code_to_id[start_code];
+    int dest = flightGraph_.code_to_id[dest_code];
+
     vector<double> gscore(14110); // Initialize g-scores, which is distance from start of each node
     vector<double> fscore(14110); // Initialize f-scores, which is heuristic; straight path of node to destination
     vector<int> previous(14110); // initialize a map that maps current node -> its previous node

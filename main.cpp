@@ -4,20 +4,20 @@
 
 int main() {
 	FlightAlgorithms fa;
-	int z;
+	string BFS_start;
 	cout << "Enter a start point for BFS: ";
-	cin >> z; 
-	fa.BFS(z);
-	cout << "\nNow we can find the shortest path.\n" << endl;
-	int x, y;
-	cout << "Enter a starting point: ";
-	cin >> x; 
+	cin >> BFS_start; 
+	fa.BFS(BFS_start);
+	cout << "Printing results of BFS traversal to BFS_Result.txt.\n" << endl;
+	cout << "Now we can find the shortest path.\n" << endl;
+	string start, end;
+	cout << "Enter a starting point as an airport code in all caps: ";
+	cin >> start; 
 	cout << "Enter a destination: ";
-	cin >> y;
-	vector<string> airports = fa.A_star(x, y);
-	//will lookup for airport codes later (can use 3830, 3361 for now) 
-	//Shortest path for ORD->SYD. Returns ORD->LAX->SYD
-	cout<<"Shortest path is: " << endl;
+	cin >> end;
+	vector<string> airports = fa.A_star(start, end);
+
+	cout<<"The shortest path between " << start << " and " << end << " is: " << endl;
 	for (size_t i = 0;  i  < airports.size(); i++) {
 		cout << airports[i]; 
 		if(i < airports.size() - 1) {

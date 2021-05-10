@@ -15,6 +15,7 @@ void FlightGraph::insertVertex(vector<string> line) {
     // cout <<airport.longitude <<endl;
 
     airportGraph.insert(pair<int, Vertex>(airport.id, airport));
+    code_to_id.insert(pair<string, int>(airport.code, airport.id));
 }
 
 // load the airports into a vector, 

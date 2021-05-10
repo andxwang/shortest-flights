@@ -61,14 +61,8 @@ TEST_CASE("Verify that null and \\N values are not in airports vector") {
 //next things to write
 //potenitally check them manually against a subset with like 3 or 4 nodes only
 TEST_CASE("Verify BFS 1") {
-  // REQUIRE(1 == 1);
-  // I think we can validate this by just checking to make sure that
-  // the weight of each node matches the distance calculated. It's 
-  // redundant but this is the best I can think of. 
-  // The only other thing we can really check is if every single node
-  // has been visited. 
   FlightAlgorithms fa;
-  vector<string> start_from_CMI = fa.BFS(4049); // CMI airport code
+  vector<string> start_from_CMI = fa.BFS("CMI"); // CMI airport code
   vector<string> start_from_CMI_subset;
   for (int i = 0; i < 3; i++) {
     start_from_CMI_subset.push_back(start_from_CMI[i]);
@@ -138,17 +132,13 @@ TEST_CASE("Verify BFS 1") {
 //   REQUIRE(420 == 420);
 // }
 
-// verified using: https://www.flightconnections.com/flights-to-sydney-syd 
 TEST_CASE("Verify Dijkstra's is working 1") {
   FlightAlgorithms fa;
   vector<string> airports;
-  airports = fa.dijkstra(3830, 3670); //ORD and Dallas
-  // for (size_t i = 0;  i  < airports.size(); i++) {
-  //  cout << airports[i] << endl;
-  // }
-  vector<string> toCompare;
-  toCompare.push_back("ORD");
-  toCompare.push_back("DFW");
+  airports = fa.dijkstra("ORD", "DFW"); //ORD and Dallas
+
+  vector<string> toCompare {"ORD", "DFW"};
+
   REQUIRE(airports == toCompare);
 }
 
@@ -156,50 +146,34 @@ TEST_CASE("Verify Dijkstra's is working 1") {
 TEST_CASE("Verify Dijkstra's 2") {
 	FlightAlgorithms fa;
 	vector<string> airports;
-	airports = fa.dijkstra(3830, 3361); //ORD to SYD
+	airports = fa.dijkstra("ORD", "SYD"); //ORD to SYD
 	//just wanna see what this looks like 
 	// for (size_t i = 0;  i  < airports.size(); i++) {
 	//  cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
 	// }
-	vector<string> toCompare;
-  toCompare.push_back("ORD");
-  toCompare.push_back("LAX");
-  toCompare.push_back("SYD");
+	vector<string> toCompare {"ORD", "LAX", "SYD"};
+
 	REQUIRE(airports == toCompare);
 }
 
-//CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->MCT->PER.
+//CASE 3 Shortest path for DAB->PER. Returns DAB -> ATL -> DFW -> BNE -> PER.
 TEST_CASE("Verify Dijkstra's 3") {
-	// The online programs don't show this as a possibility
-	// Makes sense since flight paths aren't a straight distance like we assumed
-	// The overall path does technically make sense though
 	FlightAlgorithms fa;
 	vector<string> airports;
-	airports = fa.dijkstra(3950, 3351);
-	// for (size_t i = 0;  i  < airports.size(); i++) {
-	// 	cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
-	// }
-	vector<string> toCompare;
-  toCompare.push_back("DAB");
-  toCompare.push_back("ATL");
-  toCompare.push_back("DFW");
-  toCompare.push_back("BNE");
-  toCompare.push_back("PER");
+	airports = fa.dijkstra("DAB", "PER");
+
+	vector<string> toCompare {"DAB", "ATL", "DFW", "BNE", "PER"};
+
 	REQUIRE(airports == toCompare);
 }
-//DAB -> ATL -> DXB -> PER how does this find a shorter path lol
-//will use same tests as Dijkstra's it should just run faster
+
 TEST_CASE("Verify A* search 1") {
   FlightAlgorithms fa;
   vector<string> airports;
-  airports = fa.A_star(3830, 3670); //ORD and Dallas
-  // for (size_t i = 0;  i  < airports.size(); i++) {
-  //  cout << airports[i] << endl;
-  // }
-  vector<string> toCompare;
-  toCompare.push_back("ORD");
-  toCompare.push_back("DFW");
-  // toCompare.push_back(3876); // Charlotte
+  airports = fa.A_star("ORD", "DFW"); //ORD and Dallas
+
+  vector<string> toCompare {"ORD", "DFW"};
+
   REQUIRE(airports == toCompare);
 }
 
@@ -207,35 +181,22 @@ TEST_CASE("Verify A* search 1") {
 TEST_CASE("Verify A* search 2") {
 	FlightAlgorithms fa;
 	vector<string> airports;
-	airports = fa.A_star(3830, 3361); //ORD to SYD
-	//just wanna see what this looks like 
-	// for (size_t i = 0;  i  < airports.size(); i++) {
-	//  cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
-	// }
-	vector<string> toCompare;
-  toCompare.push_back("ORD");
-  toCompare.push_back("LAX");
-  toCompare.push_back("SYD");
+	airports = fa.A_star("ORD", "SYD"); //ORD to SYD
+
+	vector<string> toCompare {"ORD", "LAX", "SYD"};
+  
 	REQUIRE(airports == toCompare);
 }
 
 //CASE 3 Shortest path for DAB->PER. Returns DAB->ATL->IAD->DOH->PER.
 TEST_CASE("Verify A* search 3") {
-	// The online programs don't show this as a possibility
-	// Makes sense since flight paths aren't a straight distance like we assumed
-	// The overall path does technically make sense though
+
 	FlightAlgorithms fa;
 	vector<string> airports;
-	airports = fa.A_star(3950, 3351);
-	// for (size_t i = 0;  i  < airports.size(); i++) {
-	// 	cout << airports[i] << endl; //fly from ORD to LAX to Sydney 
-	// }
-	vector<string> toCompare;
-  toCompare.push_back("DAB");
-  toCompare.push_back("ATL");
-  toCompare.push_back("DFW");
-  toCompare.push_back("BNE");
-  toCompare.push_back("PER");
+	airports = fa.A_star("DAB", "PER");
+
+	vector<string> toCompare {"DAB", "ATL", "DFW", "BNE", "PER"};
+
 	REQUIRE(airports == toCompare);
 }
 
@@ -245,14 +206,14 @@ TEST_CASE("Verify that A* is faster than Dijkstra's") {
 	FlightAlgorithms fa;
 	vector<string> airports;
   auto start = std::chrono::high_resolution_clock::now();
-	airports = fa.dijkstra(3830, 3361);
+	airports = fa.dijkstra("ORD", "SYD");
   auto stop = std::chrono::high_resolution_clock::now();
   auto time = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
   cout << "Dijkstra's Runtime: " << time.count() << " microseconds" << endl;
   airports.clear();
-  // REQUIRE(1 == 1); //comment out once we write A*  
+
   auto start2 = std::chrono::high_resolution_clock::now();
-  airports = fa.A_star(3830, 3361); //or whatever we decide to name it
+  airports = fa.A_star("ORD", "SYD"); 
   auto stop2 = std::chrono::high_resolution_clock::now();
   auto time2 = std::chrono::duration_cast<std::chrono::microseconds>(stop2 - start2);
   cout << "A* Search Runtime: " << time2.count() << " microseconds" << endl;
