@@ -6,7 +6,7 @@ OBJS = main.o FlightGraph.o FlightAlgorithms.o
 
 # Compilation Flags
 CXX = clang++
-CXXFLAGS = $(CS225) -std=c++14 -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
+CXXFLAGS = $(CS225) -std=c++14 -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Wno-unused-variable
 LD = clang++
 LDFLAGS = -std=c++14 -stdlib=libc++ -lc++abi -lm
 
