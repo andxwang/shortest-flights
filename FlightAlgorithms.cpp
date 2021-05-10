@@ -1,5 +1,6 @@
 #include "FlightAlgorithms.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //  Constructor
@@ -17,7 +18,7 @@ Like ik the case for calculateDistance is working now.
 */
 
 // BFS to traverse from a start point (airport id), returns a vector or vertices
-vector<int> FlightAlgorithms::BFS(int start) {
+vector<string> FlightAlgorithms::BFS(int start) {
     // Create visited vector, set all values to false, 14110 is ID of last airport
     // vector<bool> visited(14110, false);   
 
@@ -27,7 +28,7 @@ vector<int> FlightAlgorithms::BFS(int start) {
         visited[i] = false;
     }
 
-    vector<int> result;      // Vector of all visited airports in order
+    vector<string> result;      // Vector of all visited airports in order
     queue<int> airportQueue;    // queue for BFS
     airportQueue.push(start);   // enqueue first airport
     visited[start] = true;      // Set starting airport to visited
@@ -35,7 +36,7 @@ vector<int> FlightAlgorithms::BFS(int start) {
     //  BFS
     while (!airportQueue.empty()) {
         int curr = airportQueue.front();
-        result.push_back(flightGraph_.airportGraph[curr].id); // add current airport to result
+        result.push_back(flightGraph_.airportGraph[curr].code); // add current airport to result
         // std::cout << flightGraph_.airportGraph[curr].id << std::endl;
         airportQueue.pop();
         for (auto it = flightGraph_.airportGraph[curr].airports.begin(); it != flightGraph_.airportGraph[curr].airports.end(); it++) {    //  search all departures from current airport
@@ -45,6 +46,9 @@ vector<int> FlightAlgorithms::BFS(int start) {
             }
         }
     }
+    ofstream output_file("./BFS_Result.txt");
+    ostream_iterator<string> output_iterator(output_file, "\n");
+    copy(result.begin(), result.end(), output_iterator);
     return result;
 }
 
@@ -165,7 +169,6 @@ vector<string> FlightAlgorithms::A_star(int start, int dest) {
         //       for neighbor in current_node's neighbors and not in visited:
         for (auto it = flightGraph_.airportGraph[curr].airports.begin(); it != flightGraph_.airportGraph[curr].airports.end(); it++) {    //  search all departures from current airport
             if (visited[it->first] == false) {  //  next airport has not been visited
-
                 airportQueue.push_back(it->first);   //  enqueue next airport
                 visited[it->first] = true;   // set to visited; added to queue already
             }

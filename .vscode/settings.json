@@ -79,6 +79,7 @@
         "memory_resource": "cpp",
         "shared_mutex": "cpp",
         "strstream": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "list": "cpp"
     }
 }

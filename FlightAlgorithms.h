@@ -18,7 +18,7 @@ using namespace std;
 class FlightAlgorithms {
     public:
         FlightAlgorithms();
-        vector<int> BFS(int start);
+        vector<string> BFS(int start);
         vector<string> dijkstra(int start, int dest);
         vector<string> A_star(int start, int dest);
     private:        
