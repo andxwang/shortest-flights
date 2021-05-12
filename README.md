@@ -45,7 +45,7 @@ For the shortest path, the terminal will prompt you to enter a start and end poi
 The BFS traversal result will be stored in BFS_Result.txt.  
 The result of the shortest path between those two airports in IATA form will be printed in the terminal as shown below.  
 
-![alt text](https://postimg.cc/wtVxVtdw)
+![image](https://postimg.cc/wtVxVtdw)
 
 ## Resources:
 
