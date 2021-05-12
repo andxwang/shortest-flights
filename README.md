@@ -36,7 +36,7 @@ After creating the makefile, you can run the executable
 
 to run the project.
 
-The terminal will prompt you to enter a start point for the BFS which can be any integer below 14,110.
+The terminal will prompt you to enter a start point for the BFS which can be an airport code in all caps.
 
 For the shortest path, the terminal will prompt you to enter a start and end point as an airport code in all caps. This code is the IATA code of the airports of your choosing.
 
