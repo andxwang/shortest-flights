@@ -121,15 +121,7 @@ TEST_CASE("Verify BFS 2") {
 //   }
 // }   
 
-// Checking all edges in graph to see sum
-// for this one, im trying to check that no matter where we start the BFS, the sum of edge weights will remain the same, but i havent figured out how to loop it yet. 
-TEST_CASE("Edge Check") {
-  FlightGraph f;
-  f.loadFlights();
-  int sum = 0; 
-  //for (int i = 0; i < loop through )
-  REQUIRE(420 == 420);
-}
+
 
 TEST_CASE("Verify Dijkstra's is working 1") {
   FlightAlgorithms fa;
