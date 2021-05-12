@@ -36,7 +36,7 @@ After creating the makefile, you can run the executable
 
 to run the project.
 
-The terminal will prompt you to enter a start point for the BFS which can be any integer in below 14,110.
+The terminal will prompt you to enter a start point for the BFS which can be any integer below 14,110.
 
 For the shortest path, the terminal will prompt you to enter a start and end point as an airport code in all caps. This code is the IATA code of the airports of your choosing.
 
@@ -56,7 +56,7 @@ The loading in of the data and building of the graph was done in the "FlightGrap
 
 ## Algorithms:
 
-The three algorithms we implemented(BFS, Dijkstra, A *) can all be found in the "FlightAlgorithms" class, which used a "FlightGraphs" object to build the various traversals and searches. All the major code for this project can be found in "FlightGraph" and "FlightAlgorithms"
+The three algorithms we implemented(BFS, Dijkstra, A *) can all be found in the "FlightAlgorithms" class, which used a "FlightGraphs" object to build the various traversals and searches. All the major code for this project can be found in "FlightGraph" and "FlightAlgorithms".
 
 ## Testing
 
