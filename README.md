@@ -32,12 +32,14 @@ After creating the makefile, you can run the executable
 
 to run the project.
 
-The terminal will prompt you to enter a start point for the BFS
+The terminal will prompt you to enter a start point for the BFS.  
 
-## not gonna finishh writing this section for now in case we change it
+For the shortest path, the terminal will prompt you to enter a start and end point as an airport code in all caps. This code is the IATA code of the airports of your choosing.
 
+## Outputs
 
-The terminal will prompt you to enter a start and end point as an airport code in all caps. This code is the IATA code of the airports of your choosing. The result of the shortest path between those two airports in IATA form will be printed in the terminal as shown below.
+The BFS traversal result will be stored in BFS_Result.txt.  
+The result of the shortest path between those two airports in IATA form will be printed in the terminal as shown below.  
 
 ![alt text](https://postimg.cc/wtVxVtdw)
 
