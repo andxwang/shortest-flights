@@ -13,6 +13,10 @@
 
 Our final project’s goals were to find the shortest path between any two airports by distance given airlines and route information from https://openflights.org/data.html. To accomplish this, our team used BFS to implement a graph of the routes, and then used Dijkstra’s and A * algorithm to find the shortest paths between any two airports.  
 
+## Video: 
+
+https://www.youtube.com/watch?v=p-irU3KyhVs
+
 ## Usage:
 
 Our repository can be cloned using [this](https://github-dev.cs.illinois.edu/cs225-sp21/abhyanj2-msk6-andyjw2-henrywu3.git) link
